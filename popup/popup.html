@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../options/options.css">
+  <style>
+    body { width: 300px; }
+    main { padding: 16px; }
+    h1 { font-size: 16px; margin: 0 0 10px; }
+    p { margin: 0 0 12px; }
+    .warn { color: #d97706; }
+    button { width: 100%; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 class="brand"><img src="../icons/icon48.png" alt="">Reelscore</h1>
+    <p id="status">Checking this tab…</p>
+    <p id="keyWarn" class="warn" hidden>No OMDb API key yet, so ratings can't load.</p>
+    <button id="toggle" class="primary" hidden></button>
+    <button id="settings">Settings &amp; site list</button>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

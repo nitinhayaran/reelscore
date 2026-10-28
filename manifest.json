@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Reelscore",
+  "version": "0.1.0",
+  "description": "Shows IMDb and Rotten Tomatoes ratings on streaming-site listings (Netflix, Prime Video, Hotstar, and any site you add).",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.omdbapi.com/*",
+    "https://api.anthropic.com/*",
+    "*://*.netflix.com/*",
+    "*://*.primevideo.com/*",
+    "*://*.amazon.com/*",
+    "*://*.amazon.in/*",
+    "*://*.amazon.co.uk/*",
+    "*://*.hotstar.com/*",
+    "*://*.jiohotstar.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Reelscore",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html"
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reelscore – Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1 class="brand"><img src="../icons/icon48.png" alt="">Reelscore</h1>
+
+    <section>
+      <h2>API keys</h2>
+      <label>
+        OMDb API key <span class="req">required</span>
+        <input id="omdbApiKey" type="password" autocomplete="off" spellcheck="false">
+        <small>Free key (1,000 requests/day) from <a href="https://www.omdbapi.com/apikey.aspx" target="_blank">omdbapi.com/apikey.aspx</a>. Provides IMDb, Rotten Tomatoes and Metacritic scores. Ratings are saved locally and refreshed by age: every 2 days for new releases and running shows, monthly for titles up to 5 years old, every 6 months for older ones.</small>
+        <small id="usage"></small>
+      </label>
+      <label>
+        Anthropic API key <span class="opt">optional</span>
+        <input id="anthropicApiKey" type="password" autocomplete="off" spellcheck="false">
+        <small>Used only when a card's title can't be matched directly: Claude Haiku 5.5 cleans up the scraped text (e.g. "Watch Panchayat S3 E1 | Hindi") and the lookup is retried. Costs a fraction of a cent per page. Get a key at <a href="https://platform.claude.com/settings/keys" target="_blank">platform.claude.com</a>.</small>
+      </label>
+      <div class="checks">
+        <label class="check"><input id="useAi" type="checkbox"> Use AI to clean up unmatched titles</label>
+        <label class="check"><input id="showRottenTomatoes" type="checkbox"> Show Rotten Tomatoes</label>
+        <label class="check"><input id="showMetacritic" type="checkbox"> Show Metacritic</label>
+      </div>
+      <div class="row">
+        <button id="saveSettings" class="primary">Save settings</button>
+        <button id="clearCache">Clear rating cache</button>
+        <span id="settingsStatus" class="status"></span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sites</h2>
+      <p class="help">
+        The extension runs only on these sites. <b>Match patterns</b> use Chrome's format, one per line (e.g. <code>*://*.example.com/*</code>).
+        Leave the selectors empty to use automatic detection (poster images and labelled cards); fill them in when a site needs help.
+      </p>
+      <div id="sites"></div>
+      <div class="row">
+        <button id="addSite">+ Add site</button>
+        <button id="saveSites" class="primary">Save sites</button>
+        <button id="resetSites">Restore defaults</button>
+        <span id="sitesStatus" class="status"></span>
+      </div>
+    </section>
+  </main>
+
+  <template id="siteTpl">
+    <div class="site">
+      <div class="site-head">
+        <label class="check"><input class="f-enabled" type="checkbox"> Enabled</label>
+        <input class="f-name" placeholder="Site name">
+        <button class="remove" title="Remove site">Remove</button>
+      </div>
+      <label>Match patterns<textarea class="f-matches" rows="2" spellcheck="false" placeholder="*://*.example.com/*"></textarea></label>
+      <div class="grid">
+        <label>Card selector<input class="f-cardSelector" spellcheck="false" placeholder="auto"></label>
+        <label>Title attribute<input class="f-titleAttr" spellcheck="false" placeholder="auto (aria-label, alt…)"></label>
+        <label>Title selector (inside card)<input class="f-titleSelector" spellcheck="false" placeholder="auto"></label>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
