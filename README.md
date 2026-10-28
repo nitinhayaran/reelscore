@@ -157,7 +157,7 @@ Plain JavaScript, Manifest V3, no build step. Edit a file and click reload on `c
 | `src/content.js`, `src/content.css` | Card detection, title extraction, badges |
 | `options/` | Settings page: API keys, site list |
 | `popup/` | Toolbar popup: on/off for the current site, add the current site |
-| `icons/` | Icons. `icon.svg` is the source for 48/128 px; `icon-small.svg` (no reel holes, bigger star) for 16/32 px, where detail would blur |
+| `icons/` | Icons. `icon.svg` is the source for every PNG size |
 
 ## Contributing
 
